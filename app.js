@@ -1,10 +1,10 @@
 const textBlock = document.getElementById('text-block');
 const texts = [
-  "Hello! Tap to see the next message.",
-  "This text\nhas multiple\nlines to test",
-  "The cursor should\nnow track properly\nacross all lines",
-  "No more jumping\nor misalignment\nissues!",
-  "Try adding your own\nmulti-line messages!"
+  "Hello! The tap hint is now removed.",
+  "You can still tap anywhere\non the screen to continue.",
+  "The text will transition\nsmoothly between messages.",
+  "The cursor tracks perfectly\nacross multiple lines.",
+  "Clean and simple interface!"
 ];
 
 let currentIndex = 0;
@@ -34,8 +34,6 @@ function showText(text) {
         i++;
       } else {
         clearInterval(typingInterval);
-        // Remove cursor when done
-        textBlock.style.setProperty('--show-cursor', '0');
       }
     }, 50);
   }, 500);
