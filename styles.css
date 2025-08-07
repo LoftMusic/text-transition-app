@@ -26,24 +26,67 @@ body {
   min-height: 200px;
   white-space: pre-wrap;
   position: relative;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-#text-block.typing {
+/* Initial welcome text animation */
+#text-block.welcome {
+  animation: 
+    pulse 2s infinite,
+    colorChange 8s infinite,
+    bounce 1.5s ease infinite;
+  color: #4a6baf;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+#text-block.started {
   text-align: left;
   padding-right: 15px;
+  animation: none !important;
 }
 
-#text-block.typing::after {
+#text-block.started::after {
   content: '|';
   position: absolute;
   right: 0;
   animation: blink 0.7s infinite;
 }
 
+/* Animations */
 @keyframes blink {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes colorChange {
+  0% { color: #4a6baf; }
+  25% { color: #af4a8c; }
+  50% { color: #4aaf6b; }
+  75% { color: #af8c4a; }
+  100% { color: #4a6baf; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+#text-block {
+  font-size: 1.8rem; /* Slightly smaller for longer texts */
+  max-height: 60vh;
+  overflow-y: auto; /* Adds scroll if text is very long */
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  #text-block {
+    font-size: 1.4rem;
+    max-width: 95%;
+  }
 }
