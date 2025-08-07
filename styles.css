@@ -46,13 +46,20 @@ body {
   50% { opacity: 1; }
 }
 
-/* Typing animation */
-.typing {
-  border-right: 3px solid #333;
+/* Remove the old typing animation */
+#text-block.typing {
+  display: inline-block; /* Makes cursor fit text width */
+  position: relative;
+}
+
+#text-block.typing::after {
+  content: '|';
+  position: absolute;
+  right: -8px; /* Adjust based on font size */
   animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #333; }
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }

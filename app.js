@@ -23,20 +23,18 @@ function showText(text) {
   textBlock.classList.remove('visible');
   
   setTimeout(() => {
-    // Reset and start typing animation
-    textBlock.innerHTML = '';
-    textBlock.classList.add('typing');
-    textBlock.classList.add('visible');
+    textBlock.textContent = ''; // Clear previous text
+    textBlock.classList.add('typing', 'visible');
     
     let i = 0;
     const typingInterval = setInterval(() => {
       if (i < text.length) {
-        textBlock.innerHTML += text.charAt(i);
+        textBlock.textContent = text.substring(0, i + 1); // Update text
         i++;
       } else {
         clearInterval(typingInterval);
-        textBlock.classList.remove('typing');
+        textBlock.classList.remove('typing'); // Remove cursor
       }
-    }, 50); // Adjust typing speed (milliseconds)
-  }, 500); // Matches CSS transition time
+    }, 50); // Typing speed (adjust as needed)
+  }, 500); // Matches fade-out time
 }
