@@ -19,25 +19,24 @@ body {
 
 #text-block {
   display: inline-block;
-  text-align: left;
+  text-align: center;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.4;
   min-height: 200px;
   white-space: pre-wrap;
   position: relative;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#text-block.typing {
+  text-align: left;
   padding-right: 15px;
 }
 
-#text-block.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#text-block::after {
+#text-block.typing::after {
   content: '|';
   position: absolute;
   right: 0;
