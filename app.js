@@ -1,34 +1,31 @@
-const textBlock = document.getElementById('text-block');
+const contentBlock = document.getElementById('content-block');
 const content = [
   // Text messages
   {
     type: 'text',
-    content: "As dori sa incep prin a-ti reamintii cat de mult insemni pentru mine multumindu-ti pentru fiecare clipa pe care mi-ai oferit-o de-a lungul acestor 3 ani de cand ai ales sa nu ma mai tii un secret fata de familia ta ; )"
+    content: "Aș dori să încep prin a-ți reaminti cât de mult însemni pentru mine, mulțumindu-ți pentru fiecare clipă pe care mi-ai oferit-o de-a lungul acestor 3 ani de când ai ales să nu mă mai ții un secret față de familia ta ;)"
   },
   {
-    type: 'text', 
-    content: "Ma tot gandesc la cum, daca mi-as fi permis sa continui sa cred ca nu te merit, as fi fost mult mai sarac din toate punctele de vedere. Ma gandesc la cum m-as fi jefuit de toate momentele pe care acum le gasesc definitorii existentei mele si viitorului pe care il avem acum."
+    type: 'text',
+    content: "Mă tot gândesc la cum, dacă mi-aș fi permis să continui să cred că nu te merit, aș fi fost mult mai sărac din toate punctele de vedere. Mă gândesc la cum m-aș fi jefuit de toate momentele pe care acum le găsesc definitorii existenței mele și viitorului pe care îl avem acum."
   },
   {
-    type: 'text', 
-    content: "Stiu ca ai verbalizat de mai multe ori ca pentru tine nu e suficienta simpla prezenta si ai nevoie de reasigurari ale sentimentelor mele si prin alte mijloace dar pentru mine, pur si simplu tu fiind acolo ma incarca cum nu o mai face altceva."
+    type: 'text',
+    content: "Știu că ai verbalizat de mai multe ori că pentru tine nu e suficientă simpla prezență și ai nevoie de reasigurări ale sentimentelor mele și prin alte mijloace, dar pentru mine, pur și simplu tu fiind acolo mă încarcă cum nu o mai face altceva."
   },
   {
-    type: 'text', 
-    content: "In toata complexitatea cu care ma vezi gasesc cea mai veritabila fericire cand sunt cu tine. Iubesc simplul fapt ca te pot vedea, ca te pot tine in brate, ca te simt in pat cand ne culcam, ca impartim mesele si ca poti sa te simti suficient de confortabila in jurul meu incat sa faci si sa zici tot ce vrei. Ma implineste sa te vad fericita mai mult decat as fi putut crede ca ar fi posibil. Ador sa cresc alaturi de tine si sper ca in curand sa pot sa iti spun ce dorinta imi pun de fiecare data."
+    type: 'text',
+    content: "În toată complexitatea cu care mă vezi, găsesc cea mai veritabilă fericire când sunt cu tine. Iubesc simplul fapt că te pot vedea, că te pot ține în brațe, că te simt în pat când ne culcăm, că împărțim mesele și că poți să te simți suficient de confortabilă în jurul meu încât să faci și să zici tot ce vrei. Mă împlinește să te văd fericită mai mult decât aș fi putut crede că ar fi posibil. Ador să cresc alături de tine și sper că în curând să pot să îți spun ce dorință îmi pun de fiecare dată."
   },
   {
-    type: 'text', 
-    content: "Te iubesc, la multi ani noua < 3"
+    type: 'text',
+    content: "Te iubesc, la mulți ani nouă <3 !"
   },
-
-  // Add all your other text messages here with type: 'text'
-  
-  // Photo with caption (add as many as you want)
+  // Photos with captions
   {
     type: 'photo',
-    image: 'images/p1.jpg',
-    caption: 'Cand te gandesti ca astea au fost primele noastre mesaje'
+    image: 'images/photo1.jpg',
+    caption: 'Amintire frumoasă împreună <3'
   },
   {
     type: 'photo',
@@ -40,13 +37,12 @@ const content = [
 let currentIndex = 0;
 let hasStarted = false;
 
-textBlock.classList.add('welcome');
+contentBlock.classList.add('welcome');
 
 document.body.addEventListener('click', () => {
   if (!hasStarted) {
     hasStarted = true;
-    textBlock.classList.remove('welcome');
-    textBlock.classList.add('started');
+    contentBlock.classList.remove('welcome');
     showContent(content[currentIndex]);
   } else {
     currentIndex = (currentIndex + 1) % content.length;
@@ -55,20 +51,20 @@ document.body.addEventListener('click', () => {
 });
 
 function showContent(item) {
-  textBlock.style.opacity = 0;
+  contentBlock.style.opacity = 0;
   
   setTimeout(() => {
-    textBlock.innerHTML = '';
-    textBlock.style.opacity = 1;
+    contentBlock.innerHTML = '';
+    contentBlock.className = '';
+    contentBlock.style.opacity = 1;
     
     if (item.type === 'text') {
-      textBlock.classList.add('text-content');
-      textBlock.classList.remove('photo-content');
+      contentBlock.classList.add('text-content');
       
       let i = 0;
       const typingInterval = setInterval(() => {
         if (i < item.content.length) {
-          textBlock.textContent = item.content.substring(0, i + 1);
+          contentBlock.textContent = item.content.substring(0, i + 1);
           i++;
         } else {
           clearInterval(typingInterval);
@@ -76,21 +72,23 @@ function showContent(item) {
       }, 30);
     } 
     else if (item.type === 'photo') {
-      textBlock.classList.add('photo-content');
-      textBlock.classList.remove('text-content');
-      textBlock.classList.remove('started');
+      contentBlock.classList.add('photo-content');
       
-      const img = document.createElement('img');
+      const img = new Image();
       img.src = item.image;
       img.className = 'memory-photo';
+      img.onload = function() {
+        if (this.naturalHeight > this.naturalWidth) {
+          img.classList.add('portrait-image');
+        }
+      };
       
       const caption = document.createElement('div');
       caption.className = 'photo-caption';
       caption.textContent = item.caption;
       
-      textBlock.innerHTML = '';
-      textBlock.appendChild(img);
-      textBlock.appendChild(caption);
+      contentBlock.appendChild(img);
+      contentBlock.appendChild(caption);
     }
   }, 300);
 }
