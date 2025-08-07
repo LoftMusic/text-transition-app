@@ -8,30 +8,46 @@ body {
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
   overflow: hidden;
+  text-align: center;
 }
 
 .container {
-  text-align: center;
   width: 90%;
   max-width: 800px;
+  padding: 20px;
 }
 
 #text-block {
-  font-size: 2.2rem;
+  display: inline-block;
+  text-align: left;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.4;
   min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  white-space: pre-wrap;
+  position: relative;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  padding-right: 15px; /* Space for cursor */
 }
 
 #text-block.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* New cursor implementation */
+#text-block::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 .tap-hint {
@@ -43,21 +59,5 @@ body {
 
 @keyframes pulse {
   0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-/* Replace all previous typing animations with this */
-#text-block {
-  white-space: pre-wrap; /* Preserve line breaks and wrap text */
-  text-align: center;
-}
-
-.typing-cursor {
-  display: inline-block;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }

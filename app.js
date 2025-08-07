@@ -1,10 +1,10 @@
 const textBlock = document.getElementById('text-block');
 const texts = [
   "Hello! Tap to see the next message.",
-  "Did you know? The average person taps their phone 2,617 times a day.",
-  "This text appears with a typing animation!",
-  "You can customize these messages however you like.",
-  "Try adding your own quotes or jokes!"
+  "This text\nhas multiple\nlines to test",
+  "The cursor should\nnow track properly\nacross all lines",
+  "No more jumping\nor misalignment\nissues!",
+  "Try adding your own\nmulti-line messages!"
 ];
 
 let currentIndex = 0;
@@ -19,22 +19,23 @@ document.body.addEventListener('click', () => {
 });
 
 function showText(text) {
+  // Fade out
   textBlock.classList.remove('visible');
   
   setTimeout(() => {
-    textBlock.innerHTML = ''; // Clear previous text
+    // Reset and prepare for typing
+    textBlock.textContent = '';
     textBlock.classList.add('visible');
     
     let i = 0;
     const typingInterval = setInterval(() => {
       if (i < text.length) {
-        // Render all typed characters
-        textBlock.innerHTML = text.substring(0, i + 1) + 
-          '<span class="typing-cursor">|</span>';
+        textBlock.textContent = text.substring(0, i + 1);
         i++;
       } else {
         clearInterval(typingInterval);
-        textBlock.innerHTML = text; // Remove cursor when done
+        // Remove cursor when done
+        textBlock.style.setProperty('--show-cursor', '0');
       }
     }, 50);
   }, 500);
