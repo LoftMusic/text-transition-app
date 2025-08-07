@@ -19,22 +19,23 @@ document.body.addEventListener('click', () => {
 });
 
 function showText(text) {
-  // Fade out
   textBlock.classList.remove('visible');
   
   setTimeout(() => {
-    textBlock.textContent = ''; // Clear previous text
-    textBlock.classList.add('typing', 'visible');
+    textBlock.innerHTML = ''; // Clear previous text
+    textBlock.classList.add('visible');
     
     let i = 0;
     const typingInterval = setInterval(() => {
       if (i < text.length) {
-        textBlock.textContent = text.substring(0, i + 1); // Update text
+        // Render all typed characters
+        textBlock.innerHTML = text.substring(0, i + 1) + 
+          '<span class="typing-cursor">|</span>';
         i++;
       } else {
         clearInterval(typingInterval);
-        textBlock.classList.remove('typing'); // Remove cursor
+        textBlock.innerHTML = text; // Remove cursor when done
       }
-    }, 50); // Typing speed (adjust as needed)
-  }, 500); // Matches fade-out time
+    }, 50);
+  }, 500);
 }

@@ -46,16 +46,14 @@ body {
   50% { opacity: 1; }
 }
 
-/* Remove the old typing animation */
-#text-block.typing {
-  display: inline-block; /* Makes cursor fit text width */
-  position: relative;
+/* Replace all previous typing animations with this */
+#text-block {
+  white-space: pre-wrap; /* Preserve line breaks and wrap text */
+  text-align: center;
 }
 
-#text-block.typing::after {
-  content: '|';
-  position: absolute;
-  right: -8px; /* Adjust based on font size */
+.typing-cursor {
+  display: inline-block;
   animation: blink 0.7s infinite;
 }
 
