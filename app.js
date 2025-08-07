@@ -1,6 +1,6 @@
 const textBlock = document.getElementById('text-block');
 const texts = [
-  "Hello! The tap hint is now removed.",
+  "As dori sa incep prin a-ti reamintii cat de mult insemni pentru mine multumindu-ti pentru fiecare clipa pe care mi-ai oferit-o de-a lungul acestor 3 ani de cand ai ales sa nu ma mai tii un secret fata de familia ta ; )",
   "You can still tap anywhere\non the screen to continue.",
   "The text will transition\nsmoothly between messages.",
   "The cursor tracks perfectly\nacross multiple lines.",
