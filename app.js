@@ -65,7 +65,7 @@ const content = [
   ,{
     type: 'photo',
     image: 'images/p8.jpg',
-    caption: 'Alta instanta mizera in care mi-ai tras clap…Acum ca stau sa le pun una dupa alta parca sunt putin cam multe'
+    caption: 'Alta instanta mizera in care mi-ai tras clapa… Acum ca stau sa le pun una dupa alta parca sunt putin cam multe'
   }
   ,{
     type: 'photo',
