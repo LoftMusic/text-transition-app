@@ -19,19 +19,129 @@ const content = [
   },
   {
     type: 'text',
-    content: "Te iubesc, la mulți ani nouă <3 !"
+    content: "Sper să folosești aplicația asta de, sper, puținele dăți în care nu vom fi unul lângă altul. Te iubesc, la mulți ani nouă <3 !"
+  },
+  {
+    type: 'text',
+    content: " SI ACUM CATEVA AMINTIRI : "
   },
   // Photos with captions
   {
     type: 'photo',
-    image: 'images/photo1.jpg',
-    caption: 'Amintire frumoasă împreună <3'
+    image: 'images/p1.jpg',
+    caption: 'Cand te gandesti ca astea au fost primele mesaje'
   },
   {
     type: 'photo',
-    image: 'images/photo2.jpg',
-    caption: 'Moment special care îmi place să îl revăd'
+    image: 'images/p2.jpg',
+    caption: 'Imagineaza-ti ca pur si simplu asa de amabil eram, nici nu incercam sa obtin ceva'
+  },
+  {
+    type: 'photo',
+    image: 'images/p3.jpg',
+    caption: 'Incepeam sa facem muzica aici : P'
   }
+  ,
+  {
+    type: 'photo',
+    image: 'images/p4.jpg',
+    caption: 'Wtf was i on'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p5.jpg',
+    caption: 'Te trezeam dimineata si iti aduceam si cirese < 3'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p6.jpg',
+    caption: 'Aici imi dadeai cu flit bombastic...'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p7.jpg',
+    caption: 'LOOKING OUT FOR U WHEN WE WERE NOT TOGETHER BIIIIIITCH'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p8.jpg',
+    caption: 'Alta instanta mizera in care mi-ai tras clap…Acum ca stau sa le pun una dupa alta parca sunt putin cam multe'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p9.jpg',
+    caption: 'Content ✨'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p10.jpg',
+    caption: 'CE MAMA MEA VORBEAI ASA CU MINE'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p11.jpg',
+    caption: 'Suferei de surzimea de dimineata acuta de ceva timp'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p12.jpg',
+    caption: 'C E  Z E I T A'
+  }
+  ,{
+    type: 'photo',
+    image: 'images/p13.jpg',
+    caption: 'Fiecare cu ce-l doare'
+  },
+  {
+    type: 'photo',
+    image: 'images/p14.jpg',
+    caption: 'Great meme'
+  },
+  {
+    type: 'photo',
+    image: 'images/p15.jpg',
+    caption: 'ALPROVIZIONAM DE PE ATUNCI , GET IT ????????????????);£:£,£;&/-@'
+  },
+  {
+    type: 'photo',
+    image: 'images/p16.jpg',
+    caption: 'Fuck Gaylo'
+  },
+  {
+    type: 'photo',
+    image: 'images/p17.jpg',
+    caption: '?????'
+  },
+  {
+    type: 'photo',
+    image: 'images/p18.jpg',
+    caption: 'Acum 3 ani pe vremea asta pt 1'
+  },
+  {
+    type: 'photo',
+    image: 'images/p19.jpg',
+    caption: 'Pt 2… wtf'
+  },
+  {
+    type: 'photo',
+    image: 'images/p20.jpg',
+    caption: 'Primele te iubesc scrise pt 1 hihi'
+  },
+  {
+    type: 'photo',
+    image: 'images/p21.jpg',
+    caption: 'Primele te iubesc scrise pt 2'
+  },
+  {
+    type: 'text',
+    content: "Din câte văd, până acum ne-am scris te iubesc de peste 500 de ori de când am început să fim împreună. Îmi doresc să mai ajungem să ne spunem asta de încă 500 de ori... iar apoi, încă o dată tot atât."
+  },
+  {
+    type: 'text',
+    content: " ∞ Te ador cu toată sinceritatea și ființa mea. Încă o dată, La mulți ani! Te iubesc! < 3 ∞  "
+  }
+
+  
 ];
 
 let currentIndex = 0;
